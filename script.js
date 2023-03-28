@@ -3,13 +3,13 @@
 let stock = [
   {
     title: 'Harry Potter and the Chamber of Secrets',
-    author: 'J.K. Rowling'
+    author: 'J.K. Rowling',
   },
 ];
 
 // Get HTML elements
-const title = document.getElementById("title").value;
-const author = document.getElementById("author").value;
+// const title = document.getElementById('title').value;
+// const author = document.getElementById('author').value;
 const addButton = document.getElementById('add-button');
 const bookList = document.getElementById('library');
 const errorElement = document.getElementById('error');
@@ -17,18 +17,17 @@ const errorElement = document.getElementById('error');
 // Add a new book to the collection
 function addBook(title, author) {
   if (title !== '' && author !== '') {
-    const newBook = {title: title, author: author};
+    const newBook = { title, author };
     stock.push(newBook);
-    console.log(newBook);
-    document.getElementById("add-form").reset();
+    // console.log(newBook);
+    document.getElementById('add-form').reset();
   } else {
-
     const messages = [];
-    if (title == '' && author == '') {
+    if (title === '' && author === '') {
       messages.push('Please enter the book\'s title and author.');
-    } else  if (author == '' && title !== '') {
+    } else if (author === '' && title !== '') {
       messages.push('Please enter the book\'s author.');
-    } else if (title == '' && author !== '') {
+    } else if (title === '' && author !== '') {
       messages.push('Please enter the book\'s title.');
     }
 
@@ -44,13 +43,13 @@ function addBook(title, author) {
 
 // Remove a book from the collection
 function removeBook(title, author) {
-  stock = stock.filter(element => element.title !== title && element.author !== author);
- }
+  stock = stock.filter((element) => element.title !== title && element.author !== author);
+}
 
 // Display all books in collection
 function displayBooks() {
   bookList.innerHTML = '';
-  stock.forEach(element => {
+  stock.forEach((element) => {
     // Create a book element
     const aBook = document.createElement('div');
     const titleBook = document.createElement('h2');
@@ -76,9 +75,8 @@ function displayBooks() {
   });
 }
 
-
 // Add book when form is submitted
-addButton.addEventListener('click', function(event) {
+addButton.addEventListener('click', (event) => {
   event.preventDefault(); // evita que el formulario se envíe por defecto
   const title = document.querySelector('#title').value; // obtiene el valor del input 'title'
   const author = document.querySelector('#author').value; // obtiene el valor del input 'author'
@@ -87,13 +85,12 @@ addButton.addEventListener('click', function(event) {
   displayBooks();
 });
 
-
 // To show the book in the stock \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 // esto es para la informacion del libro
 let book = '';
 
-//here i put the books one by one
+// here i put the books one by one
 stock.forEach((element) => {
   book += `
     <div>
@@ -105,7 +102,7 @@ stock.forEach((element) => {
   `;
 });
 
-//call the father element
+// call the father element
 const section = document.getElementById('library');
 
 section.innerHTML = book;

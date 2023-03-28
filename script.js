@@ -3,8 +3,6 @@
 let stock = [];
 
 // Get HTML elements
-// const title = document.getElementById('title');
-// const author = document.getElementById('author');
 const addButton = document.getElementById('add-button');
 const bookList = document.getElementById('library');
 const errorElement = document.getElementById('error');
@@ -13,8 +11,6 @@ const errorElement = document.getElementById('error');
 function addBook(title, author) {
   if (title !== '' && author !== '') {
     const newBook = { title, author };
-    // Local storage actual value
-    // let stock = JSON.parse(localStorage.getItem("stockedBooks")) || [];
     // Save the book
     stock.push(newBook);
     // Save on local storage
@@ -84,9 +80,9 @@ function displayBooks() {
 
 // Add book when form is submitted
 addButton.addEventListener('click', (event) => {
-  event.preventDefault(); // evita que el formulario se envíe por defecto
-  const title = document.querySelector('#title').value; // obtiene el valor del input 'title'
-  const author = document.querySelector('#author').value; // obtiene el valor del input 'author'
+  event.preventDefault();
+  const title = document.querySelector('#title').value;
+  const author = document.querySelector('#author').value;
   addBook(title, author);
   // To display the book
   displayBooks();
@@ -94,10 +90,8 @@ addButton.addEventListener('click', (event) => {
 
 // To show the book in the stock \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-// esto es para la informacion del libro
 let book = '';
 
-// here i put the books one by one
 stock.forEach((element) => {
   book += `
     <div>

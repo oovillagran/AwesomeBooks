@@ -3,8 +3,8 @@
 let stock = [];
 
 // Get HTML elements
-const title = document.getElementById('title');
-const author = document.getElementById('author');
+// const title = document.getElementById('title');
+// const author = document.getElementById('author');
 const addButton = document.getElementById('add-button');
 const bookList = document.getElementById('library');
 const errorElement = document.getElementById('error');
@@ -14,10 +14,10 @@ function addBook(title, author) {
   if (title !== '' && author !== '') {
     const newBook = { title, author };
     // Local storage actual value
-    //let stock = JSON.parse(localStorage.getItem("stockedBooks")) || [];
+    // let stock = JSON.parse(localStorage.getItem("stockedBooks")) || [];
     // Save the book
     stock.push(newBook);
-    // Save on local storage    
+    // Save on local storage
     localStorage.setItem('stockedBooks', JSON.stringify(stock));
     // Reset form values
     document.getElementById('add-form').reset();
@@ -37,7 +37,7 @@ function addBook(title, author) {
       setTimeout(() => {
         errorElement.remove();
       }, 3000);
-    }  
+    }
   }
 }
 
@@ -98,7 +98,7 @@ addButton.addEventListener('click', (event) => {
 let book = '';
 
 // here i put the books one by one
-stock.forEach((element, index) => {
+stock.forEach((element) => {
   book += `
     <div>
     <h4>${element.title}</h4>

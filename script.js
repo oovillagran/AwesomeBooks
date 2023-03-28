@@ -7,31 +7,85 @@ let stock = [
   },
 ];
 
-// Add a new object into the array when user sends the form
+// Get HTML elements
+const title = document.getElementById("title").value;
+const author = document.getElementById("author").value;
+const addButton = document.getElementById('add-button');
+const bookList = document.getElementById('library');
+const errorElement = document.getElementById('error');
 
-function addBook() {
-  const title = document.getElementById("title").value;
-  const author = document.getElementById("author").value;
-  const newBook = {title: title, author: author};
-  stock.push(newBook);
+// Add a new book to the collection
+function addBook(title, author) {
+  if (title !== '' && author !== '') {
+    const newBook = {title: title, author: author};
+    stock.push(newBook);
+    console.log(newBook);
+    document.getElementById("add-form").reset();
+  } else {
+
+    const messages = [];
+    if (title == '' && author == '') {
+      messages.push('Please enter the book\'s title and author.');
+    } else  if (author == '' && title !== '') {
+      messages.push('Please enter the book\'s author.');
+    } else if (title == '' && author !== '') {
+      messages.push('Please enter the book\'s title.');
+    }
+
+    if (messages.length > 0) {
+      errorElement.innerText = messages.join(', ');
+      // Remove the message after 3 seconds
+      setTimeout(() => {
+        errorElement.remove();
+      }, 3000);
+    }
+  }
 }
 
-// Funcionalidad del boton Agregar
-/*
-const form = document.getElementById('add-form');
+// Remove a book from the collection
+function removeBook(title, author) {
+  stock = stock.filter(element => element.title !== title && element.author !== author);
+ }
 
-form.addEventListener('click', (event) => {
-  //event.preventDefault();
-  console.log();
+// Display all books in collection
+function displayBooks() {
+  bookList.innerHTML = '';
+  stock.forEach(element => {
+    // Create a book element
+    const aBook = document.createElement('div');
+    const titleBook = document.createElement('h2');
+    const authorBook = document.createElement('p');
+    titleBook.textContent = `${element.title}`;
+    authorBook.textContent = `${element.author}`;
+    const removeButton = document.createElement('button');
+    const line = document.createElement('hr');
 
-  if(title.value !== '' && author.value !== '') {
-    addBook(title.value, author.value)
-  }
-  
+    // Delete the book
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', () => {
+      removeBook(element.title, element.author);
+      aBook.remove();
+    });
+
+    // Create the book view
+    aBook.appendChild(titleBook);
+    aBook.appendChild(authorBook);
+    bookList.appendChild(aBook);
+    aBook.appendChild(removeButton);
+    aBook.appendChild(line);
+  });
+}
+
+
+// Add book when form is submitted
+addButton.addEventListener('click', function(event) {
+  event.preventDefault(); // evita que el formulario se envíe por defecto
+  const title = document.querySelector('#title').value; // obtiene el valor del input 'title'
+  const author = document.querySelector('#author').value; // obtiene el valor del input 'author'
+  addBook(title, author);
+  // To display the book
+  displayBooks();
 });
-*/
-
-
 
 
 // To show the book in the stock \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\

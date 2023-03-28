@@ -8,11 +8,14 @@ let stock = [
 ];
 
 // Get HTML elements
-// const title = document.getElementById('title').value;
-// const author = document.getElementById('author').value;
+const title = document.getElementById('title');
+const author = document.getElementById('author');
 const addButton = document.getElementById('add-button');
 const bookList = document.getElementById('library');
 const errorElement = document.getElementById('error');
+
+// saved data in the browser
+const saveBooks = localStorage.getItem('addedBooks');
 
 // Add a new book to the collection
 function addBook(title, author) {
@@ -38,7 +41,13 @@ function addBook(title, author) {
         errorElement.remove();
       }, 3000);
     }
+
+  localStorage.setItem('addedBooks', JSON.stringify(stock));
+  title.value = ' ';
+  author.value = ' ';
   }
+
+
 }
 
 // Remove a book from the collection
@@ -106,3 +115,10 @@ stock.forEach((element) => {
 const section = document.getElementById('library');
 
 section.innerHTML = book;
+
+window.addEventListener('load', () => {
+  if (localStorage.getItem('addedBooks')) {
+    stock = JSON.parse(localStorage.getItem('addedBooks'));
+  }
+  displayBooks();
+});

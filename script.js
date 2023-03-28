@@ -45,9 +45,9 @@ function addBook(title, author) {
 function removeBook(index) {
   // Eliminar el libro del array
   stock.splice(index, 1);
-   // Guardar el array actualizado en el localStorage
-  localStorage.setItem("stockedBooks", JSON.stringify(stock));
-  location.reload();
+  // Guardar el array actualizado en el localStorage
+  localStorage.setItem('stockedBooks', JSON.stringify(stock));
+  window.location.reload();
 }
 
 // Display all books in collection

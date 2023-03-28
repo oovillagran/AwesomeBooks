@@ -1,11 +1,6 @@
 // array to keep the books
 
-let stock = [
-  {
-    title: 'Harry Potter and the Chamber of Secrets',
-    author: 'J.K. Rowling',
-  },
-];
+let stock = [];
 
 // Get HTML elements
 const title = document.getElementById('title');
@@ -14,15 +9,17 @@ const addButton = document.getElementById('add-button');
 const bookList = document.getElementById('library');
 const errorElement = document.getElementById('error');
 
-// saved data in the browser
-const saveBooks = localStorage.getItem('addedBooks');
-
 // Add a new book to the collection
 function addBook(title, author) {
   if (title !== '' && author !== '') {
     const newBook = { title, author };
+    // Local storage actual value
+    //let stock = JSON.parse(localStorage.getItem("stockedBooks")) || [];
+    // Save the book
     stock.push(newBook);
-    // console.log(newBook);
+    // Save on local storage    
+    localStorage.setItem('stockedBooks', JSON.stringify(stock));
+    // Reset form values
     document.getElementById('add-form').reset();
   } else {
     const messages = [];
@@ -40,29 +37,30 @@ function addBook(title, author) {
       setTimeout(() => {
         errorElement.remove();
       }, 3000);
-    }
-
-  localStorage.setItem('addedBooks', JSON.stringify(stock));
-  title.value = ' ';
-  author.value = ' ';
+    }  
   }
-
-
 }
 
 // Remove a book from the collection
-function removeBook(title, author) {
-  stock = stock.filter((element) => element.title !== title && element.author !== author);
+function removeBook(index) {
+  // Obtener los libros del localStorage o un array vacío
+  let books = JSON.parse(localStorage.getItem("books")) || [];
+  // Eliminar el libro del array
+  stock.splice(index, 1);
+   // Guardar el array actualizado en el localStorage
+  localStorage.setItem("stockedBooks", JSON.stringify(stock));
 }
 
 // Display all books in collection
 function displayBooks() {
   bookList.innerHTML = '';
-  stock.forEach((element) => {
+  stock.forEach((element, index) => {
     // Create a book element
     const aBook = document.createElement('div');
+    const idBook = document.createElement('span');
     const titleBook = document.createElement('h2');
     const authorBook = document.createElement('p');
+    idBook.textContent = `${index}`;
     titleBook.textContent = `${element.title}`;
     authorBook.textContent = `${element.author}`;
     const removeButton = document.createElement('button');
@@ -71,11 +69,12 @@ function displayBooks() {
     // Delete the book
     removeButton.textContent = 'Remove';
     removeButton.addEventListener('click', () => {
-      removeBook(element.title, element.author);
+      removeBook(index);
       aBook.remove();
     });
 
     // Create the book view
+    aBook.appendChild(idBook);
     aBook.appendChild(titleBook);
     aBook.appendChild(authorBook);
     bookList.appendChild(aBook);
@@ -100,7 +99,7 @@ addButton.addEventListener('click', (event) => {
 let book = '';
 
 // here i put the books one by one
-stock.forEach((element) => {
+stock.forEach((element, index) => {
   book += `
     <div>
     <h4>${element.title}</h4>
@@ -117,8 +116,8 @@ const section = document.getElementById('library');
 section.innerHTML = book;
 
 window.addEventListener('load', () => {
-  if (localStorage.getItem('addedBooks')) {
-    stock = JSON.parse(localStorage.getItem('addedBooks'));
+  if (localStorage.getItem('stockedBooks')) {
+    stock = JSON.parse(localStorage.getItem('stockedBooks'));
   }
   displayBooks();
 });

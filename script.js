@@ -43,12 +43,11 @@ function addBook(title, author) {
 
 // Remove a book from the collection
 function removeBook(index) {
-  // Obtener los libros del localStorage o un array vacío
-  let books = JSON.parse(localStorage.getItem("books")) || [];
   // Eliminar el libro del array
   stock.splice(index, 1);
    // Guardar el array actualizado en el localStorage
   localStorage.setItem("stockedBooks", JSON.stringify(stock));
+  location.reload();
 }
 
 // Display all books in collection

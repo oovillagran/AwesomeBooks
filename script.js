@@ -109,4 +109,3 @@ stock.forEach((element) => {
 const section = document.getElementById('library');
 
 section.innerHTML = book;
-

@@ -169,3 +169,25 @@ form button {
   padding-top: 1rem;
   align-self: flex-end;
 }
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header {
+  border: 0.25rem #d0d9d4 solid;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  text-decoration: none;
+  margin-right: 1rem;
+  gap: 1rem;
+}
+
+.footer {
+  border: 0.25rem #d0d9d4 solid;
+  text-align: center;
+}

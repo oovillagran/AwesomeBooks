@@ -1,4 +1,171 @@
-body {
+/* Global Styles */
+html {
+  box-sizing: border-box;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
+
+  /* outline: 1px solid red !important; */
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 5rem;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'COCOGOOSE', sans-serif;
+  font-size: 3rem;
+  font-weight: 100;
+  line-height: 1;
+  letter-spacing: -8%;
+  text-align: center;
+}
+
+h2,
+h3,
+span,
+p,
+button,
+div {
+  font-family: 'Lato', sans-serif;
+}
+
+p {
+  font-size: 1rem;
+}
+
+span {
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 1.1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.gray-line {
+  width: 5rem;
+  height: 0.2rem;
+  background-color: gray;
+  margin: 1rem;
+}
+
+/* Book Shelf styles */
+#library {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d0d9d4;
+  border-radius: 20px;
+  width: 80%;
+  height: min-content;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  gap: 1rem;
+}
+
+#library div {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  width: 90%;
+  height: 3.5rem;
+  background-color: #ebf0ee;
+  border-radius: 5px;
+}
+
+#library div span {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  margin-bottom: 1rem;
+  color: dimgrey;
+}
+
+#library div h2 {
+  text-align: center;
+  margin: 0 1rem 0 1.5rem;
+  width: 50%;
+  max-height: min-content;
+}
+
+#library div p {
+  text-align: center;
+  padding-left: 1rem;
+}
+
+form button {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  font-weight: bold;
+  text-align: center;
+  background-color: #36b37f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.8rem;
+  height: 2rem;
+}
+
+#library button {
+  position: absolute;
+  top: 50%;
+  left: 95%;
+  transform: translate(-50%, -50%);
+  border: none;
+  background-color: lightcoral;
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: white;
+}
+
+/* Form styles */
+#add-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+#add-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+#title,
+#author {
+  border: 1px solid #d0d9d4;
+  border-radius: 4px;
+  height: 2rem;
+}
+
+#error {
+  font-weight: 600;
+  color: #ff6163;
+  padding-top: 1rem;
+  align-self: flex-end;
 }

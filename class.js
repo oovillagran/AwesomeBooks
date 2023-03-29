@@ -1,12 +1,5 @@
-class Book {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-  }
-}
-
 class LibraryList {
-  constructor () {
+  constructor() {
     this.stock = [];
     this.loadBooks();
     this.displayBooks();
@@ -31,8 +24,9 @@ class LibraryList {
       } else if (title === '' && author !== '') {
         messages.push('Please enter the book\'s title.');
       }
-  
+
       if (messages.length > 0) {
+        const errorElement = document.getElementById('error');
         errorElement.innerText = messages.join(', ');
         // Remove the message after 3 seconds
         setTimeout(() => {
@@ -53,6 +47,7 @@ class LibraryList {
   }
 
   displayBooks() {
+    const bookList = document.getElementById('library');
     bookList.innerHTML = '';
     this.stock.forEach((element, index) => {
       // Create a book element
@@ -65,14 +60,14 @@ class LibraryList {
       authorBook.textContent = `${element.author}`;
       const removeButton = document.createElement('button');
       const line = document.createElement('hr');
-  
+
       // Delete the book
       removeButton.textContent = 'Remove';
       removeButton.addEventListener('click', () => {
         this.removeBook(index);
         aBook.remove();
       });
-  
+
       // Create the book view
       aBook.appendChild(idBook);
       aBook.appendChild(titleBook);
@@ -91,27 +86,16 @@ class LibraryList {
       this.displayBooks();
     });
   }
-
 }
 
-
-
-
-//let stock = [];
-
 // Get HTML elements
-const bookList = document.getElementById('library');
-const errorElement = document.getElementById('error');
+
 const libraryList = new LibraryList();
 const addButton = document.getElementById('add-button');
-
-
 
 addButton.addEventListener('click', (event) => {
   event.preventDefault();
   const title = document.querySelector('#title').value;
   const author = document.querySelector('#author').value;
   libraryList.addBook(title, author);
-  // To display the book
-  // displayBooks();
 });

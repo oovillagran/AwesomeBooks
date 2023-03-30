@@ -99,3 +99,9 @@ addButton.addEventListener('click', (event) => {
   const author = document.querySelector('#author').value;
   libraryList.addBook(title, author);
 });
+
+// Add date & time
+
+const date = new Date();
+const timeDate = document.querySelector('#date');
+timeDate.innerHTML = date.toString();

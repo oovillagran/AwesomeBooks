@@ -10,62 +10,62 @@
     <title>Awesome Books</title>
 </head>
 <body>
-    <header class="header">
-      <nav class="nav-bar">
-        <h2 class="header-awesome">Awesome Books</h2>
-        <ul class="nav-menu">
-          <li class="nav-item">
-            <a class="nav-list" href="#">List</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-add" href="#">Add New</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-contact" href="#">Contact</a>
-          </li>
-        </ul>
-      </nav>
+    <header>
+        <nav class="menu">
+            <div class="image-container" id="logo">
+                <a href="index.html"><img src="logo.png" alt="Awesome Books" /></a>
+            </div>
+            <ul>
+                <a class="menu-link" id="link-list" href="#book-list">List</a>
+                <a class="menu-link" id="link-add" href="#add-section">Add New</a>
+                <a class="menu-link" id="link-contact" href="#contact-info">Contact</a>
+            </ul>
+        </nav> 
     </header>
-    <span id="date"></span>
     <main>
-        <h1>Awesome books</h1>
-        <div class="gray-line"></div>
-        <!-- To display the existing books -->
-        <section id="library" class="invisible">
+        <section id="date">
 
         </section>
-        <!-- Contact section -->
-        <section id="contact" class="invisible">
-          <!-- <div class="section-div">
-            <h4 class="section-title">Contact Information</h4>
-            <p class="section-paragrah">Do you have any question or you just want to say hello?<br>You can reach out to us!</p>
-            <p class="section-email">Our e-mail: ruth_abreu@gmail.com</p>
-            <p class="section-phone">Our phone #: +43 45 564 3455m</p>
-            <p class="section-address">Our address: Cazuarina N3456 Av. y Buganvillas</p>
-          </div> -->
+        <!--Book Shelf-->
+        <section id="book-list" class="book-list">
+            <h1>All Awesome books</h1>
+            <div class="gray-line"></div>
+            <!-- To display the existing books -->
+            <div id="library">
+            </div>
         </section>
-        
+
         <!-- To add a book -->
-        <section id="add-section" class="invisible">
-          <h3>Add a new book</h3>
-          <div class="gray-line"></div>
-          <form id="add-form" class="add-form" action="" method="">
-				    <label for="title">
-					    <input type="text" name="title" id="title" class="add-form__input" placeholder="Book title" required>
-				    </label>
-				    <label for="author">
-					    <input type="text" name="author" id="author" class="add-form__input" placeholder="Book author" required>
-				    </label>
-				    <button type="button" id="add-button">Add</button>
-				    <div id="error"></div>
-			    </form>
+        <section id="add-section">
+            <h3>Add a new book</h3>
+            <div class="gray-line"></div>
+            <form id="add-form" class="add-form" action="" method="">
+				<label for="title">
+					<input type="text" name="title" id="title" class="add-form__input" placeholder="Book title" required>
+				</label>
+				<label for="author">
+					<input type="text" name="author" id="author" class="add-form__input" placeholder="Book author" required>
+				</label>
+				<button type="button" id="add-button">Add</button>
+				<div id="error"></div>
+			</form>
+        </section>
+
+        <!-- Contact Info -->
+        <section id="contact-info">
+            <h3>Contact information</h3>
+            <div class="gray-line"></div>
+            <p>Do have any questions or you just want to say "Hello"? You can reach out to us!</p>
+            <ul>
+                <li><p>Our e-mail: <a href="mailto:mail@mail.com">mail@mail.com</a></p></li>
+                <li><p>Our phone number: 0043586534422</p></li>
+                <li><p>Our address: Streetname 22, 84503 City, Country</p></li>
+            </ul>
         </section>
     </main>
-
-    <footer class="footer">
-      <p class="rights">Copyrights © All Rights Reserved</p>
+    <footer>
+        <p>Copyright</p>
     </footer>
     <script src="class.js"></script>
-    
 </body>
 </html>

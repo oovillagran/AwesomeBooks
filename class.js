@@ -108,24 +108,35 @@ timeDate.innerHTML = date.toString();
 
 // Contact section
 
+const objectSection = [
+  {
+    title: 'Contact Information',
+    message: 'Do you have any question or you just want to say hello?<br>You can reach out to us!',
+    email: 'Our e-mail: ruth_abreu@gmail.com',
+    phone: 'Our phone #: +43 45 564 3455',
+    address: 'Our address: Cazuarina N3456 Av. y Buganvillas',
+  }
+]
+
 const contactMenu = document.querySelector('.nav-contact');
 const contactSection = document.querySelector('#contact');
+const sectionDiv = document.createElement('div');
 
-contactMenu.addEventListener('click', () => {
-  const sectionDiv = document.createElement('div');
-  sectionDiv.classList.add('section-div');
-  contactSection.classList.remove('invisible');
-  addBookSection.classList.add('invisible');
-  librarySection.classList.add('invisible');
-  contactSection.appendChild(sectionDiv);
-  
-  sectionDiv.innerHTML = `
-    <h4 class="section-title">Contact Information</h4>
-    <p class="section-paragrah">Do you have any question or you just want to say hello?<br>You can reach out to us!</p>
-    <p class="section-email">Our e-mail: ruth_abreu@gmail.com</p>
-    <p class="section-phone">Our phone #: +43 45 564 3455m</p>
-    <p class="section-address">Our address: Cazuarina N3456 Av. y Buganvillas</p>
-  `
+objectSection.map((data) => {
+  contactMenu.addEventListener('click', () => {
+    sectionDiv.classList.add('section-div');
+    contactSection.classList.remove('invisible');
+    addBookSection.classList.add('invisible');
+    librarySection.classList.add('invisible');
+    contactSection.appendChild(sectionDiv);
+      sectionDiv.innerHTML = `
+      <h4 class="section-title">${data.title}</h4>
+      <p class="section-paragrah">${data.message}</p>
+      <p class="section-email">${data.email}</p>
+      <p class="section-phone">${data.phone}</p>
+      <p class="section-address">${data.address}</p>
+      `
+  })
 })
 
 // Add a Book Section

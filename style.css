@@ -15,14 +15,8 @@ html {
   /* outline: 1px solid red !important; */
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  padding: 5rem;
-  align-items: center;
-}
-
-h1 {
+h1,
+h3 {
   font-family: 'COCOGOOSE', sans-serif;
   font-size: 3rem;
   font-weight: 100;
@@ -31,13 +25,17 @@ h1 {
   text-align: center;
 }
 
-h2,
-h3,
+#date,
+a,
 span,
 p,
 button,
 div {
   font-family: 'Lato', sans-serif;
+}
+
+h3 {
+  font-family: 'COCOGOOSE', sans-serif;
 }
 
 p {
@@ -49,15 +47,6 @@ span {
   font-weight: 600;
 }
 
-h2 {
-  font-size: 1.1rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-  font-weight: 500;
-}
-
 .gray-line {
   width: 5rem;
   height: 0.2rem;
@@ -65,7 +54,90 @@ h3 {
   margin: 1rem;
 }
 
+/* Menu styles */
+nav.menu {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3rem;
+  background-color: #3e3e3e;
+}
+
+.menu ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+
+.menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+}
+
+nav a:hover,
+nav a:focus {
+  background-color: #333;
+  color: #fff;
+}
+
+.menu-link {
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 0 1rem;
+  transition-property: all;
+  transition-duration: 0.7s;
+}
+
+.image-container div {
+  display: flex;
+  flex-direction: row;
+}
+
+#logo img {
+  align-items: center;
+  height: 1rem;
+}
+
+/* Main */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 5rem 5rem 5rem;
+  align-items: center;
+}
+
+/* Actual time and date */
+#date {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
 /* Book Shelf styles */
+#book-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
 #library {
   display: flex;
   flex-direction: column;
@@ -109,6 +181,12 @@ h3 {
   max-height: min-content;
 }
 
+footer p {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
 #library div p {
   text-align: center;
   padding-left: 1rem;
@@ -131,7 +209,7 @@ form button {
 #library button {
   position: absolute;
   top: 50%;
-  left: 95%;
+  left: 90%;
   transform: translate(-50%, -50%);
   border: none;
   background-color: lightcoral;
@@ -142,7 +220,7 @@ form button {
 
 /* Form styles */
 #add-section {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   padding: 1rem;
@@ -168,4 +246,36 @@ form button {
   color: #ff6163;
   padding-top: 1rem;
   align-self: flex-end;
+}
+
+/* Contact Styles */
+#contact-info {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+#contact-info p:nth-child(3) {
+  padding: 1rem;
+}
+
+#contact-info li {
+  padding: 0.4rem 0;
+}
+
+#contact-info a {
+  color: #36b;
+}
+
+/* Footer Styles */
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 3rem;
+  background-color: #3e3e3e;
+  margin-top: auto;
+  width: 100%;
 }

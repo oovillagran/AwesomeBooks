@@ -191,3 +191,11 @@ form button {
   border: 0.25rem #d0d9d4 solid;
   text-align: center;
 }
+
+.invisible {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}

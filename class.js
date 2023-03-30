@@ -108,23 +108,14 @@ timeDate.innerHTML = date.toString();
 
 // Contact section
 
-const contactInformation = [
-  {
-    title: 'Contact Information',
-    question: 'Do you have any question or you just want to say hello?',
-    reach: 'You can reach out to us!',
-    email: 'Our e-mail: ruth_abreu@gmail.com',
-    phone: 'Our phone #: +43 45 564 3455',
-    address: 'Our address: Cazuarina N3456 Av. y Buganvillas',
-  }
-]
-
 const contactMenu = document.querySelector('.nav-contact');
 const contactSection = document.querySelector('#contact');
 
 contactMenu.addEventListener('click', () => {
   const sectionDiv = document.createElement('div');
   sectionDiv.classList.add('section-div');
+  contactSection.classList.remove('invisible');
+  addBookSection.classList.add('invisible')
   contactSection.appendChild(sectionDiv);
   
   sectionDiv.innerHTML = `
@@ -134,5 +125,14 @@ contactMenu.addEventListener('click', () => {
     <p class="section-phone">Our phone #: +43 45 564 3455m</p>
     <p class="section-address">Our address: Cazuarina N3456 Av. y Buganvillas</p>
   `
+})
 
+// Add a Book Section
+
+const addBookSection = document.querySelector('#add-section');
+const addMenu = document.querySelector('.nav-add');
+
+addMenu.addEventListener(('click'), () => {
+  addBookSection.classList.remove('invisible');
+  contactSection.classList.add('invisible');
 })

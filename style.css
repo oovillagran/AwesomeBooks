@@ -181,7 +181,6 @@ main {
   max-height: min-content;
 }
 
-
 footer p {
   color: white;
   font-size: 1rem;
@@ -191,6 +190,20 @@ footer p {
 #library div p {
   text-align: center;
   padding-left: 1rem;
+}
+
+form button {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  font-weight: bold;
+  text-align: center;
+  background-color: #36b37f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.8rem;
+  height: 2rem;
 }
 
 #library button {
@@ -225,20 +238,6 @@ footer p {
 #author {
   border: 1px solid #d0d9d4;
   border-radius: 4px;
-  height: 2rem;
-}
-
-form button {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center;
-  font-weight: bold;
-  text-align: center;
-  background-color: #36b37f;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 0.8rem;
   height: 2rem;
 }
 
@@ -280,4 +279,3 @@ footer {
   margin-top: auto;
   width: 100%;
 }
-

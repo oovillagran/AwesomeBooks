@@ -31,7 +31,6 @@ class LibraryList {
         // Remove the message after 3 seconds
         setTimeout(() => {
           errorElement.remove();
-          window.location.reload();
         }, 3000);
       }
     }

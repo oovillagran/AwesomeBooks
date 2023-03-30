@@ -61,7 +61,7 @@ nav.menu {
   flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
-  align-items:center;
+  align-items: center;
   width: 100%;
   height: 3rem;
   background-color: #3e3e3e;
@@ -72,11 +72,12 @@ nav.menu {
   list-style: none;
   align-items: center;
 }
+
 .menu a {
   color: white;
   text-decoration: none;
   padding: 0.8rem;
-  border-radius: 0.40rem;
+  border-radius: 0.4rem;
 }
 
 nav a:hover,
@@ -127,7 +128,6 @@ main {
   align-items: flex-start;
   width: 100%;
   margin-bottom: 3rem;
-
 }
 
 /* Book Shelf styles */
@@ -174,11 +174,18 @@ main {
   color: dimgrey;
 }
 
-#library div h2 {  
+#library div h2 {
   text-align: center;
   margin: 0 1rem 0 1.5rem;
   width: 50%;
   max-height: min-content;
+}
+
+
+footer p {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 #library div p {
@@ -259,7 +266,7 @@ form button {
 }
 
 #contact-info a {
-  color: #36b
+  color: #36b;
 }
 
 /* Footer Styles */
@@ -274,8 +281,3 @@ footer {
   width: 100%;
 }
 
-footer p {
-  color: white;
-  font-size: 1rem;
-  font-weight: 600;
-}

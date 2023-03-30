@@ -118,29 +118,23 @@ const addSection = document.querySelector('#add-section');
 const contactSection = document.querySelector('#contact-info');
 
 // Listeners for the links events
-linkList.addEventListener('click', function(event) {
+linkList.addEventListener('click', (event) => {
   event.preventDefault();
-  bookListSection.style.display = "flex";
-  addSection.style.display = "none";
-  contactSection.style.display = "none";
+  bookListSection.style.display = 'flex';
+  addSection.style.display = 'none';
+  contactSection.style.display = 'none';
 });
 
-linkAdd.addEventListener('click', function(event) {
+linkAdd.addEventListener('click', (event) => {
   event.preventDefault();
-  bookListSection.style.display = "none";
-  addSection.style.display = "flex";
-  contactSection.style.display = "none";
+  bookListSection.style.display = 'none';
+  addSection.style.display = 'flex';
+  contactSection.style.display = 'none';
 });
 
-linkContact.addEventListener('click', function(event) {
+linkContact.addEventListener('click', (event) => {
   event.preventDefault();
-  bookListSection.style.display = "none";
-  addSection.style.display = "none";
-  contactSection.style.display = "flex";
+  bookListSection.style.display = 'none';
+  addSection.style.display = 'none';
+  contactSection.style.display = 'flex';
 });
-
-
-
-
-
-

@@ -115,7 +115,8 @@ contactMenu.addEventListener('click', () => {
   const sectionDiv = document.createElement('div');
   sectionDiv.classList.add('section-div');
   contactSection.classList.remove('invisible');
-  addBookSection.classList.add('invisible')
+  addBookSection.classList.add('invisible');
+  librarySection.classList.add('invisible');
   contactSection.appendChild(sectionDiv);
   
   sectionDiv.innerHTML = `
@@ -134,5 +135,18 @@ const addMenu = document.querySelector('.nav-add');
 
 addMenu.addEventListener(('click'), () => {
   addBookSection.classList.remove('invisible');
+  contactSection.classList.add('invisible');
+  librarySection.classList.add('invisible');
+})
+
+
+// Add a library Section
+
+const librarySection = document.querySelector('#library');
+const addList = document.querySelector('.nav-list');
+
+addList.addEventListener(('click'), () => {
+  librarySection.classList.remove('invisible');
+  addBookSection.classList.add('invisible');
   contactSection.classList.add('invisible');
 })
